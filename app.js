@@ -7,6 +7,15 @@ var cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var coordinatesRouter = require('./routes/coordinates');
+var userRouter = require('./routes/users');
+
+const mongoose = require('mongoose');
+require('dotenv').config();
+
+const mongoDB = process.env.MONGO_URI;
+mongoose.connect(mongoDB);
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'mongo connection error'));
 
 var app = express();
 
@@ -23,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/coordinates', coordinatesRouter);
+app.use('/users', userRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
