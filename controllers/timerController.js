@@ -15,8 +15,7 @@ const startTimer = (req, res, next) => {
     console.log('Timer started');
     res.sendStatus(200); // Send success response
   } else {
-    console.log('Timer already running');
-    res.status(400).send('Timer is already running');
+    startTime = new Date();
   }
 };
 
