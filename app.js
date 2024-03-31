@@ -8,6 +8,7 @@ var cors = require('cors');
 var indexRouter = require('./routes/index');
 var coordinatesRouter = require('./routes/coordinates');
 var userRouter = require('./routes/users');
+var timerRouter = require('./routes/timer');
 
 const mongoose = require('mongoose');
 require('dotenv').config();
@@ -33,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/coordinates', coordinatesRouter);
 app.use('/users', userRouter);
+app.use('/timer', timerRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
