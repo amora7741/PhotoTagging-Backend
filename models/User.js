@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
   nickname: String,
-  duration: String,
+  duration: Number,
 });
 
 module.exports = mongoose.model('User', UserSchema);
